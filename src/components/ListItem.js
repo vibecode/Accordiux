@@ -6,12 +6,12 @@ import { connect } from 'react-redux';
 
 class ListItem extends Component {
   renderDescription() {
-    const {library, expanded} = this.props;
+    const {section, expanded} = this.props;
 
     if (expanded) {
       return (
           <Text>
-            {library.description}
+            {section.description}
           </Text>
       );
     }
@@ -19,10 +19,10 @@ class ListItem extends Component {
 
   render() {
     const {titleStyle} = styles;
-    const {id, title} = this.props.library;
+    const {id, title} = this.props.section;
 
     return (
-        <TouchableWithoutFeedback onPress={() => this.props.selectLibrary(id)}>
+        <TouchableWithoutFeedback onPress={() => this.props.selectSection(id)}>
           <View>
             <CardSection>
               <Text style={titleStyle}>
@@ -44,7 +44,7 @@ const styles = {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  const expanded = state.selectedLibraryId === ownProps.library.id;
+  const expanded = state.selectedSectionId === ownProps.section.id;
 
   return {expanded};
 };
