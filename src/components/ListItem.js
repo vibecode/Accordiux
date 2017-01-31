@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Text, TouchableWithoutFeedback, View, LayoutAnimation, UIManager, Platform } from 'react-native';
-import { CardSection } from './common';
+import { Card, CardSection } from './common';
 import * as actions from '../actions';
 import { connect } from 'react-redux';
 
 class ListItem extends Component {
   constructor(props) {
-    super();
+    super(props);
     if (Platform.OS === 'android') {
       UIManager.setLayoutAnimationEnabledExperimental
       && UIManager.setLayoutAnimationEnabledExperimental(true);
@@ -39,12 +39,14 @@ class ListItem extends Component {
     return (
         <TouchableWithoutFeedback onPress={() => this.props.selectSection(id)}>
           <View>
-            <CardSection>
-              <Text style={titleStyle}>
-                {title}
-              </Text>
-            </CardSection>
-            {this.renderDescription()}
+            <Card>
+              <CardSection>
+                <Text style={titleStyle}>
+                  {title}
+                </Text>
+              </CardSection>
+              {this.renderDescription()}
+            </Card>
           </View>
         </TouchableWithoutFeedback>
     );
@@ -54,11 +56,9 @@ class ListItem extends Component {
 const styles = {
   titleStyle: {
     fontSize: 18,
-    paddingLeft: 15
   },
   contentStyle: {
     flex: 1,
-    padding: 20
   }
 };
 

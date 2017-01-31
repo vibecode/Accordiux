@@ -11,8 +11,7 @@ export const Card = (props) => {
 
 const styles = {
   containerStyle: {
-    borderRadius: 6,
-    borderWidth: 1,
+    borderBottomWidth: 1,
     borderColor: '#ddd',
     shadowColor: '#000',
     shadowOffset: {
@@ -20,9 +19,5 @@ const styles = {
       height: 2
     },
     shadowOpacity: 0.2,
-    padding: 16,
-    marginLeft: 8,
-    marginRight: 8,
-    marginTop: 12,
   }
 };
